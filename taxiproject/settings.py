@@ -137,7 +137,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static"),]
 
 MEDIA_URL = '/media/'
