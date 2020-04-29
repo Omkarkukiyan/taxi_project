@@ -1,1 +1,1 @@
-web: gunicorn taxiproject.wsgi 
+web: gunicorn taxiproject.wsgi:application --log-file - --log-level debug
