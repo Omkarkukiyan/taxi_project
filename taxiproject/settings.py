@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
-import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,16 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'oe7bjpu1#2t8dweck48bn+e!^o4fs2vw^8mn1&^+#h2m$+y50_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://django-taxi-ride.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
-    'whitenoise.runserver_nostatic',
     'rider.apps.RiderConfig',
     'driver.apps.DriverConfig',
     'trip.apps.TripConfig',
@@ -49,7 +47,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -98,8 +95,7 @@ DATABASES = {
 
 
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -144,9 +140,8 @@ STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static")]
 
 MEDIA_URL = '/media/'
 
@@ -160,5 +155,3 @@ MESSAGE_TAGS = {
 }
 
 
-
-django_heroku.settings(locals())
