@@ -146,7 +146,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static"),]
 
 MEDIA_URL = '/media/'
 
