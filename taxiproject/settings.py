@@ -26,7 +26,7 @@ SECRET_KEY = 'oe7bjpu1#2t8dweck48bn+e!^o4fs2vw^8mn1&^+#h2m$+y50_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost','django-taxi-ride.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','django-taxi-ride.herokuapp.com']
 
 
 # Application definition
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -130,15 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 
-# Static files (CSS, JavaScript, Images)
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static"),]
 
@@ -155,4 +150,4 @@ MESSAGE_TAGS = {
 
 
 
-django_heroku.settings(locals())
+django_heroku.settings(locals)
