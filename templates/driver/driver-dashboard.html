@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Drviers Dashboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">TaxiTrip</a>
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'driver_logout' %}">
+                <i class="fa fa-sign-out" style="font-size:36px"></i>
+                </a>
+            </li> 
+        </ul> 
+    </nav>
+
+{% include 'partials/_alerts.html' %}
+
+
+ <div class="container">
+    <div class="col-md-9 flex-item">
+        <div class="card">
+            <div class="card-header">
+                <h3>Current Trip</h3>
+            </div>
+            <div class="card-body">
+                {% for trip in trips_progress %}
+                    {% if trip %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img style='float:left;width:110px;height:110px; margin-right:30px;' class="rounded-circle" src="{{ trip.rider.profile_pic.url }}" />
+                                <p style="font-size:20px; margin-top:10px">{{ trip.rider.first_name }} {{ trip.rider.last_name }}<br>
+                                    <small>{{ trip.rider.email }}</small><br>   
+                                    {{ trip.pickup }} TO {{ trip.dropoff }}<br>
+                                    <a href="{% url 'recent_trip' trip.trip_id %}">{{ trip.status }}</a><br> </p>
+                            </div>
+                        </div>
+
+                             
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>    
+</div>    
+
+
+ <div class="container">
+    <div class="col-md-9 flex-item">
+        <div class="card">
+            <div class="card-header">
+                <h3>Requested Trip</h3>
+            </div>
+            <div class="card-body">
+                {% for trip in trips_requested %}
+                    {% if trip %}
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img style='float:left;width:110px;height:110px; margin-right:30px;' class="rounded-circle" src="{{ trip.rider.profile_pic.url }}" />
+                                <p style="font-size:20px; margin-top:10px">{{ trip.rider.first_name }} {{ trip.rider.last_name }}<br>
+                                    <small>{{ trip.rider.email }}</small><br>
+                                    {{ trip.pickup }} TO {{ trip.dropoff }}<br>
+                                    <a href="{% url 'ride_request' trip.trip_id %}">{{ trip.status }}</a><br> </p>
+                            </div>
+                        </div>
+
+                             
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>    
+    </div>    
+
+
+
+
+<div class="container">
+    <div class="col-md-9 flex-item">
+        <div class="card">
+            <div class="card-header">
+                <h3>Recent Trip</h3>
+            </div>
+            <div class="card-body">
+                {% for trip in trips_completed %}
+                    {% if trip %}
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img style='float:left;width:110px;height:110px; margin-right:30px;' class="rounded-circle" src="{{ trip.rider_profile_pic.url }}" />
+                                <p style="font-size:20px; margin-top:10px">{{ trip.rider_first_name }} {{ trip.rider_last_name }}<br>
+                                    <small>{{ trip.rider_email }}</small><br>
+                                    {{ trip.pickup }} TO {{ trip.dropoff }}<br>
+                                    {{ trip.status }}<br> </p>
+                            </div>
+                        </div>
+
+                             
+                    {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>    
+    </div>    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

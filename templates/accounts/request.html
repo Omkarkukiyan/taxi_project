@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+   <div class="container">
+        <div class="col-md-9 flex-item">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>Request</h4>
+                </div>
+                <div class="card-body">
+                <form action="{% url 'trip_details' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="pickup">Pick up:</label>
+                        <input
+                        class="form-control"
+                        name="pickup"
+                        type="text"
+                        required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="dropoff">Drop Off:</label>
+                        <input
+                        class="form-control"
+                        type="text"
+                        name="dropoff"
+                        required
+                        >
+                    </div>
+                    <input type="submit" onclick="trip.href='{% url 'update_map' %}'" value="Update Map" class="btn btn-secondary btn-block-1">  
+                    <div id='map' style='width: 750px; height: 300px;'></div>
+                    <script>
+                        mapboxgl.accessToken = 'pk.eyJ1Ijoib21rYXIzMCIsImEiOiJjazlkYTE2anEwMWFvM2VveW10ZHloOXVnIn0.5Xe6BbhtPJQsOy0Ni2p6GA';
+                        var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/satellite-streets-v10',
+                        center: [-77.03, 38.91],
+                        zoom: 9,
+                        bearing: 180
+                        });
+                    </script>  
+                </div>
+                    <input type="submit" onclick=".href='{% url 'update_map' %}'" value="Submit" class="btn btn-secondary btn-block">
+                </form>
+            </div>
+        </div>    
+
+            
+            
+     
+    </div>      
+
+
+{% endblock %}
