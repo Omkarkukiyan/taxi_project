@@ -25,7 +25,7 @@ SECRET_KEY = 'oe7bjpu1#2t8dweck48bn+e!^o4fs2vw^8mn1&^+#h2m$+y50_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-taxi-ride.herokuapp.com']
 
 
 # Application definition
