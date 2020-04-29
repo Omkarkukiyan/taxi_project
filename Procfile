@@ -1,1 +1,1 @@
-web: gunicorn taxiproject.wsgi --log-file -
+web: gunicorn taxiproject.wsgi
