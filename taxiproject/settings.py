@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://django-taxi-ride.herokuapp.co
 
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
+    'whitenoise.runserver_nostatic',
     'rider.apps.RiderConfig',
     'driver.apps.DriverConfig',
     'trip.apps.TripConfig',
