@@ -16,7 +16,7 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-export DEBUG_VALUE = "True"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -24,7 +24,7 @@ export DEBUG_VALUE = "True"
 SECRET_KEY = 'oe7bjpu1#2t8dweck48bn+e!^o4fs2vw^8mn1&^+#h2m$+y50_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = False
 
 ALLOWED_HOSTS = ['django-taxi-ride.herokuapp.com']
 
