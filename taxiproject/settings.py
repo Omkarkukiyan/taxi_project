@@ -26,7 +26,7 @@ SECRET_KEY = 'oe7bjpu1#2t8dweck48bn+e!^o4fs2vw^8mn1&^+#h2m$+y50_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','django-taxi-ride.herokuapp.com']
 
 
 # Application definition
@@ -137,12 +137,14 @@ USE_TZ = True
 
 
 
-STATIC_ROOT= os.path.join(BASE_DIR, '/staticfiles')
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "taxiproject/static")]
+
+
 
 MEDIA_URL = '/media/'
 
