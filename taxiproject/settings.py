@@ -137,7 +137,7 @@ USE_TZ = True
 
 
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT= os.path.join(BASE_DIR, 'taxiproject/staticfiles')
 
 STATIC_URL = '/static/'
 
