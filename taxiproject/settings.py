@@ -141,7 +141,7 @@ STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
 
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT,'taxiproject/static/'),
+    os.path.join(PROJECT_ROOT,'static/'),
 )
 
 STATIC_URL = '/static/'
